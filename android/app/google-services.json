@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "408510128158",
+    "project_id": "mini-facebook-b370c",
+    "storage_bucket": "mini-facebook-b370c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408510128158:android:12e114a022e8cbfe598e0f",
+        "android_client_info": {
+          "package_name": "com.ayanaw.mini_facebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "408510128158-c6t7qrpm8c7l64hl5ki4omr4tds813f5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4LNBdtBqF25aSSw0ag-Oqr_S0qxE3bj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "408510128158-c6t7qrpm8c7l64hl5ki4omr4tds813f5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
