@@ -1,4 +1,4 @@
-package com.example.mini_facebook
+package com.ayanaw.mini_facebook
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "408510128158-nrie3c354ancoo65coaf3g7m144uhjhk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ayanaw.mini_facebook",
+            "certificate_hash": "6fa9718bdf370aa2ded9fb23d8bbf264acdc6580"
+          }
+        },
+        {
           "client_id": "408510128158-c6t7qrpm8c7l64hl5ki4omr4tds813f5.apps.googleusercontent.com",
           "client_type": 3
         }
