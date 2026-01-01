@@ -256,15 +256,30 @@ class HomePage extends StatelessWidget {
                         backgroundImage: userPhoto != null
                             ? NetworkImage(userPhoto)
                             : null,
+                        child: userPhoto == null
+                            ? const Icon(Icons.person)
+                            : null,
                       ),
                     ),
                     const SizedBox(width: 10),
-                    const Expanded(
-                      child: Text(
-                        "What's on your mind?",
-                        style: TextStyle(fontSize: 16),
+                    // MAKE THIS EXPANDED SECTION CLICKABLE
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () => _showCreatePostModal(context, userPhoto),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 15,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey[300]!),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Text("What's on your mind?"),
+                        ),
                       ),
                     ),
+                    const SizedBox(width: 10),
                     const Icon(Icons.photo_library, color: Colors.green),
                   ],
                 ),
@@ -458,6 +473,80 @@ class HomePage extends StatelessWidget {
       onPressed: () {},
       icon: Icon(icon, color: Colors.grey[600]),
       label: Text(label, style: TextStyle(color: Colors.grey[600])),
+    );
+  }
+
+  void _showCreatePostModal(BuildContext context, String? userPhoto) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(
+            context,
+          ).viewInsets.bottom, // Moves up with keyboard
+          left: 20,
+          right: 20,
+          top: 20,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              "Create Post",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+            const Divider(),
+            Row(
+              children: [
+                CircleAvatar(
+                  backgroundImage: userPhoto != null
+                      ? NetworkImage(userPhoto)
+                      : null,
+                ),
+                const SizedBox(width: 10),
+                const Text(
+                  "Your Name",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            TextField(
+              autofocus: true,
+              maxLines: 5,
+              decoration: const InputDecoration(
+                hintText: "What's on your mind?",
+                border: InputBorder.none,
+              ),
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF1877F2),
+                ),
+                onPressed: () {
+                  // Here is where you would normally save to Firebase
+                  Navigator.pop(context);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Post shared successfully!")),
+                  );
+                },
+                child: const Text(
+                  "Post",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
     );
   }
 }
